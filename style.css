@@ -141,3 +141,45 @@ body {
   text-decoration: line-through;
   opacity: 0.5;
 }
+
+/*******  create nre user *******/
+
+.inputs {
+  height: 5px;
+  width: 60%;
+  margin: 5px;
+
+  outline: none;
+  border: none;
+  padding: 20px;
+  padding-right: 50px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.newUser {
+  color: white;
+  position: absolute;
+  display: flex;
+  display: block;
+  text-align: center;
+  height: 25pc;
+  width: 20pc;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 55px black;
+}
+
+.save_newUser {
+  padding: 8px;
+  width: 60%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.save_newUser:hover {
+  background-color: rgb(54, 73, 54);
+  cursor: pointer;
+}

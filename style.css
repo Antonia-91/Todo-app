@@ -1,0 +1,143 @@
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-image: url("./img/forest.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.login {
+  color: white;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  display: block;
+  text-align: center;
+  padding-top: 8px;
+  margin: auto;
+  height: fit-content;
+  width: 95vw;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 55px black;
+}
+
+.container {
+  position: absolute;
+  height: 25pc;
+  width: 20pc;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 55px black;
+}
+
+.addText {
+  position: absolute;
+  height: 5px;
+  width: 60%;
+  margin: auto;
+  top: 25px;
+  right: 0;
+  left: 0;
+
+  outline: none;
+  border: none;
+  padding: 25px;
+  padding-right: 50px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.addBtn {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  top: 20px;
+  right: 35px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 0;
+}
+
+.addBtn img {
+  position: absolute;
+  height: 40px;
+  margin: auto;
+  top: 25px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.list {
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.check {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 50px;
+}
+
+#check:hover {
+  border: 1px solid rgb(11, 172, 11);
+}
+
+.trach {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+}
+#trach:hover {
+  border: 1px solid rgb(126, 15, 15);
+}
+
+.element {
+  position: relative;
+  height: fit-content;
+  width: 55%;
+  right: 0;
+  margin: 10px;
+  text-align: left;
+  transition: 0.2s;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 2px;
+  padding-right: 80px;
+  word-wrap: break-word;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.element:hover {
+  transform: scale(1.1);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

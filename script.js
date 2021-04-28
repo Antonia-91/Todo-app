@@ -1,9 +1,14 @@
+// ------- Selectors From DOm ------- //
 const addBtn = document.querySelector(".addBtn");
 addBtn.addEventListener("click", addElement);
 
 let elements = [];
 
-// -- spara inputvalue i en array & LS-- //
+// -----  GLOBAL VARIABLES ------ //
+let userLoggedIn = JSON.parse(localStorage.getItem("keyToUser"));
+console.log(userLoggedIn);
+
+// -------- spara inputvalue i en array & LS -------- //
 function addElement() {
   let value = document.querySelector(".addText").value.trim();
   if (value != "") {
@@ -16,7 +21,7 @@ function addElement() {
   }
 }
 
-// -- varje gång vi refreshar -- //
+// -------- varje gång vi refreshar -------- //
 window.onload = function () {
   if (JSON.parse(localStorage.getItem("keyToElements")) != null) {
     display();
@@ -42,7 +47,7 @@ function display() {
   document.querySelector(".addText").value = "";
 }
 
-// global eventlisteners
+// ------- global eventlisteners ------- //
 document.querySelector("body").addEventListener("click", (event, index) => {
   if (event.target.matches(".trach")) {
     let index = event.target.id;
@@ -63,3 +68,50 @@ document.querySelector("body").addEventListener("click", (event, index) => {
     localStorage.setItem("keyToElements", JSON.stringify(elements));
   }
 });
+
+// ------- Handel login ------- //
+
+// Endpotint Call
+function getUser(user) {
+  return fetch("http://localhost:3000/users/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  })
+    .then((res) => res.json())
+    .then((user) => {
+      console.log(user);
+      localStorage.setItem("keyToUser", JSON.stringify(user));
+      return user;
+    });
+}
+// enevtlister loginBtn
+let login = document.getElementById("login-btn");
+
+login.addEventListener("click", () => {
+  let inputUsername = document.getElementById("input-username");
+  let inputPassword = document.getElementById("input-password");
+
+  if (inputUsername.value.trim() != "" && inputPassword.value.trim() != "") {
+    let loginUser = {
+      userName: inputUsername.value.trim(),
+      password: inputPassword.value.trim(),
+    };
+
+    getUser(loginUser).then((user) => {
+      userLoggedIn = user;
+      updateDom(user);
+    });
+  }
+});
+
+//change H2 to current user
+function updateDom(user) {
+  document.getElementById(
+    "current-user"
+  ).innerHTML = `${user[0].userName}s Todo`;
+}
+
+fetch("http://localhost:3000/users")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
